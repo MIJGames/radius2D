@@ -35,6 +35,9 @@ namespace Radius2D
                 Layer.circles.Add(newCirc);
             }
 
+            // Adding a Capsule
+            var cap = new Capsule(100, 100, 50, 15, 10, 0, Color.GREEN);
+
             // Some Extra Variables
             float FPS;
             float deltaTime;
@@ -51,6 +54,9 @@ namespace Radius2D
 
                 // Updating the Physics Layer
                 Layer.Update(deltaTime);
+
+                // Updating the Capsule
+                cap.Update(deltaTime);
                 
                 // Rendering Section of the Program
                 Raylib.BeginDrawing();
@@ -62,6 +68,8 @@ namespace Radius2D
 
                     // Drawing the Physics Layer's every Element
                     Layer.Draw();
+
+                    cap.Draw();
                 
                 // End of Rendering section
                 Raylib.EndDrawing();
